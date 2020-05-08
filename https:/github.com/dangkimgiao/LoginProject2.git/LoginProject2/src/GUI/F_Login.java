@@ -13,6 +13,7 @@ import DTO.UserDTO;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
 public class F_Login extends JFrame {
@@ -64,12 +65,19 @@ public class F_Login extends JFrame {
 				
 				try {
 					if(userBLL.Login(userDTO)==null) {
+						//xuat message nhap username, password ko dung
+					}
+					else if (!userBLL.Login(userDTO).first()) //ko tim thay record nao thoa dk
+					{
 						//xuat message login ko thanh cong
 					}
 					else {
 						//xuat message login thanh cong hoac lien toi form tiep theo
 					}
 				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}

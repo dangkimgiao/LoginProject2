@@ -20,7 +20,7 @@ public class UserBLL {
 		}
 		else {
 			userDAL=new UserDAL();
-			result =userDAL.GetUserByNameNPass(userDTO);
+			result =userDAL.GetUserByNameNPass(userDTO); //ko bao gio tra ve null, ke ca khi ko tim thay record nao
 		}
 		return result;
 	}
